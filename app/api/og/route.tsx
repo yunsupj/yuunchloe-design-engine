@@ -16,89 +16,107 @@ export async function GET(request: NextRequest) {
 	const text = searchParams.get("text")?.trim() || FALLBACK_TEXT;
 
 	return new ImageResponse(
-		<div
-			style={{
-				position: "relative",
-				display: "flex",
-				width: "100%",
-				height: "100%",
-				backgroundColor: "#0a0a0a",
-			}}
-		>
-			<img
-				src={image}
-				alt=""
-				width={WIDTH}
-				height={HEIGHT}
+		(
+			<div
 				style={{
-					position: "absolute",
-					top: 0,
-					left: 0,
+					position: "relative",
+					display: "flex",
 					width: "100%",
 					height: "100%",
-					objectFit: "cover",
-				}}
-			/>
-
-			<div
-				style={{
-					position: "absolute",
-					top: 0,
-					left: 0,
-					width: "100%",
-					height: "100%",
-					backgroundImage:
-						"linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.55) 35%, rgba(0,0,0,0.15) 65%, rgba(0,0,0,0) 100%)",
-					display: "flex",
-				}}
-			/>
-
-			<div
-				style={{
-					position: "absolute",
-					top: 36,
-					right: 48,
-					display: "flex",
-					fontSize: 22,
-					fontWeight: 500,
-					letterSpacing: "0.18em",
-					textTransform: "uppercase",
-					color: "rgba(255,255,255,0.7)",
-					textShadow: "0 1px 6px rgba(0,0,0,0.4)",
+					backgroundColor: "#0a0a0a",
+					fontFamily: "Inter, sans-serif",
 				}}
 			>
-				깨알톡
-			</div>
+				{/* eslint-disable-next-line @next/next/no-img-element */}
+				<img
+					src={image}
+					alt=""
+					width={WIDTH}
+					height={HEIGHT}
+					style={{
+						position: "absolute",
+						top: 0,
+						left: 0,
+						width: "100%",
+						height: "100%",
+						objectFit: "cover",
+						objectPosition: "center",
+					}}
+				/>
 
-			<div
-				style={{
-					position: "absolute",
-					left: 56,
-					right: 56,
-					bottom: 64,
-					display: "flex",
-					padding: "32px",
-					borderRadius: "16px",
-					backgroundColor: "rgba(15,15,18,0.45)",
-					border: "1px solid rgba(255,255,255,0.18)",
-					boxShadow: "0 8px 32px rgba(0,0,0,0.35)",
-				}}
-			>
 				<div
 					style={{
+						position: "absolute",
+						top: 0,
+						left: 0,
+						width: "100%",
+						height: "100%",
+						backgroundColor: "rgba(0, 0, 0, 0.3)",
 						display: "flex",
-						fontSize: 56,
-						fontWeight: 700,
-						lineHeight: 1.15,
-						color: "#ffffff",
-						letterSpacing: "-0.01em",
-						textShadow: "0 2px 8px rgba(0,0,0,0.35)",
+					}}
+				/>
+
+				<div
+					style={{
+						position: "absolute",
+						top: 0,
+						left: 0,
+						width: "100%",
+						height: "100%",
+						backgroundImage:
+							"linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.35) 40%, rgba(0,0,0,0) 75%)",
+						display: "flex",
+					}}
+				/>
+
+				<div
+					style={{
+						position: "absolute",
+						top: 40,
+						right: 56,
+						display: "flex",
+						fontSize: "20px",
+						fontWeight: 600,
+						letterSpacing: "0.2em",
+						textTransform: "uppercase",
+						color: "rgba(255, 255, 255, 0.6)",
+						textShadow: "0 1px 6px rgba(0, 0, 0, 0.4)",
 					}}
 				>
-					{text}
+					KKAERTALK
+				</div>
+
+				<div
+					style={{
+						position: "absolute",
+						left: 56,
+						right: 56,
+						bottom: 64,
+						display: "flex",
+						padding: "48px",
+						borderRadius: "16px",
+						backgroundColor: "rgba(255, 255, 255, 0.1)",
+						backdropFilter: "blur(20px)",
+						border: "1px solid rgba(255, 255, 255, 0.15)",
+						boxShadow: "0 8px 32px rgba(0, 0, 0, 0.35)",
+					}}
+				>
+					<div
+						style={{
+							display: "flex",
+							fontSize: "64px",
+							fontWeight: 800,
+							lineHeight: 1.1,
+							letterSpacing: "-0.02em",
+							color: "#ffffff",
+							textShadow: "0 2px 10px rgba(0, 0, 0, 0.35)",
+						}}
+					>
+						{text}
+					</div>
 				</div>
 			</div>
-		</div>,
+		),
 		{
 			width: WIDTH,
 			height: HEIGHT,
