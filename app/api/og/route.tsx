@@ -114,7 +114,7 @@ export async function GET(request: NextRequest) {
 				<div
 					style={{
 						display: "flex",
-						maxWidth: "900px",
+						maxWidth: "960px",
 						fontSize: "64px",
 						fontWeight: 900,
 						lineHeight: 1.2,
@@ -123,6 +123,7 @@ export async function GET(request: NextRequest) {
 						color: "#ffffff",
 						textShadow: "0 2px 6px rgba(0,0,0,0.6), 0 8px 28px rgba(0,0,0,0.5)",
 						whiteSpace: "pre-wrap",
+						wordBreak: "keep-all",
 						WebkitTextStroke: "2px #ffffff",
 					}}
 				>
