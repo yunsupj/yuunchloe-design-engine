@@ -122,6 +122,7 @@ export async function GET(request: NextRequest) {
 						textAlign: "center",
 						color: "#ffffff",
 						textShadow: "0 2px 6px rgba(0,0,0,0.6), 0 8px 28px rgba(0,0,0,0.5)",
+						whiteSpace: "pre-wrap",
 						WebkitTextStroke: "2px #ffffff",
 					}}
 				>
