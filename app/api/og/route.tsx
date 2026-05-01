@@ -33,8 +33,8 @@ export async function GET(request: NextRequest) {
 
 	// CTA slide: override title to brand CTA, suppress description
 	if (isCtaSlide) {
-		title = "우리 동네 진짜 정보,";
-		description = "깨알톡 에서";
+		title = "우리 동네 진짜 정보,\n깨알톡 에서";
+		description = "";
 	}
 
 	const stackTop = isCtaSlide ? CENTER_Y - 150 : CENTER_Y + 150;
@@ -125,20 +125,24 @@ export async function GET(request: NextRequest) {
 				<div
 					style={{
 						display: "flex",
+						flexDirection: "column",
+						alignItems: "center",
 						maxWidth: "960px",
-						fontSize: "64px",
+						fontSize: "68px",
 						fontWeight: 900,
 						lineHeight: 1.25,
 						letterSpacing: "-0.02em",
 						textAlign: "center",
 						color: "#ffffff",
-						textShadow: "0 2px 6px rgba(0,0,0,0.6), 0 8px 28px rgba(0,0,0,0.5)",
 						whiteSpace: "pre-wrap",
+						textShadow: "0 2px 6px rgba(0,0,0,0.6), 0 8px 28px rgba(0,0,0,0.5)",
 						wordBreak: "keep-all",
-						WebkitTextStroke: "2px rgba(255,255,255,0.3)",
+						WebkitTextStroke: "3px rgba(255,255,255,0.3)",
 					}}
 				>
-					{title}
+					{title.split(/\\n|\n/).map((line, index) => (
+						<div key={index}>{line}</div>
+					))}
 				</div>
 
 				{/* Description — hidden on CTA slide */}
@@ -147,8 +151,8 @@ export async function GET(request: NextRequest) {
 						style={{
 							display: "flex",
 							maxWidth: "800px",
-							fontSize: "40px",
-							fontWeight: 800,
+							fontSize: "45px",
+							fontWeight: 900,
 							lineHeight: 1.4,
 							marginTop: "20px",
 							textAlign: "center",
@@ -156,6 +160,7 @@ export async function GET(request: NextRequest) {
 							textShadow: "0 2px 8px rgba(0,0,0,0.8)",
 							whiteSpace: "pre-wrap",
 							wordBreak: "keep-all",
+							WebkitTextStroke: "2px rgba(255,255,255,0.3)",
 						}}
 					>
 						{description}
